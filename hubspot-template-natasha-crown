@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>{{ content.html_title }}</title>
+    {{ favicon_link }}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="{{ content.meta_description }}" />
+    <meta name="robots" content="NOODP, index, follow" />
+    <meta itemprop="name" content="">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="">
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:creator" content="">
+    <meta name="twitter:image:src" content="">
+    <meta name="twitter:domain" content="">
+    <!-- Open Graph data (Facebook) -->
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="" />
+
+    {% textarea "custom_css_code" label='Custom CSS values' no_wrapper="true" export_to_template_context="true" %}
+    {% textarea "custom_js_code" label='Custom JS values' no_wrapper="true" export_to_template_context="true" %}
+
+    <!-- THEME STYLESHEETS -->
+    {{ standard_header_includes }}
+
+    <link rel="stylesheet" href="https://s3.amazonaws.com/belch.io/belch-base-css/v1/belch-defaults.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="https://s3.amazonaws.com/belch.io/themes/minimalist/css/style.css" />
+<link rel="stylesheet" href="https://s3.amazonaws.com/belch.io/belch-base-css/v1/belch-defaults.css" />
+<link rel="stylesheet" href="https://s3.amazonaws.com/belch.io/themes/minimalist/css/overrides.css" />
+
+    <style>{{ widget_data.custom_css_code.value }}</style>
+</head>
+<body class="{{ builtin_body_classes }}">
+
+  <!-- THEME STYLES -->
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Arapey:400,400i|Montserrat:200,300,300i,400,400i,500,500i,600,700,800,900');
+    .belch-page-wrapper {
+      background: white;
+    }
+    .belch-page-wrapper section p, .belch-page-wrapper section li, .belch-page-wrapper section a, .belch-page-wrapper section  {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        line-height: 1.66em;
+        font-weight: 400;
+        letter-spacing: 0px;
+        color: #333;
+    }
+    @media screen and (max-width:992px) {
+        .belch-page-wrapper section p, .belch-page-wrapper section li, .belch-page-wrapper section a, .belch-page-wrapper section  {
+            font-size: 16px;
+        }
+    }
+    @media screen and (max-width:768px) {
+        .belch-page-wrapper section p, .belch-page-wrapper section li, .belch-page-wrapper section a, .belch-page-wrapper section  {
+            font-size: 16px;
+        }
+    }
+    .belch-page-wrapper section h1 {
+        font-family: 'Arapey',serif;
+        font-size: 78px;
+        line-height: 0.9em;
+        font-weight: 500;
+        letter-spacing: 0px;
+        color: #fff;
+    }
+    @media screen and (max-width:992px) {
+        .belch-page-wrapper section h1 {
+            font-size: 62px;
+        }
+    }
+    @media screen and (max-width:768px) {
+        .belch-page-wrapper section h1 {
+            font-size: 30px;
+        }
+    }
+    .belch-page-wrapper section h2 {
+        font-family: 'Arapey',serif;
+        font-size: 42px;
+        line-height: 1.2em;
+        font-weight: 500;
+        letter-spacing: 0px;
+        color: #333333;
+    }
+    @media screen and (max-width:992px) {
+        .belch-page-wrapper section h2 {
+            font-size: 42px;
+        }
+    }
+    @media screen and (max-width:768px) {
+        .belch-page-wrapper section h2 {
+            font-size: 26px;
+        }
+    }
+    .belch-page-wrapper section h3 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 40px;
+        line-height: 1.2em;
+        font-weight: 200;
+        letter-spacing: 0px;
+        color: #333333;
+    }
+    @media screen and (max-width:992px) {
+        .belch-page-wrapper section h3 {
+            font-size: 34px;
+        }
+    }
+    @media screen and (max-width:768px) {
+        .belch-page-wrapper section h3 {
+            font-size: 22px;
+        }
+    }
+    .belch-page-wrapper section h4 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 25px;
+        line-height: 1.2em;
+        font-weight: 400;
+        letter-spacing: 0px;
+        color: #333333;
+    }
+    @media screen and (max-width:992px) {
+        .belch-page-wrapper section h4 {
+            font-size: 25px;
+        }
+    }
+    @media screen and (max-width:768px) {
+        .belch-page-wrapper section h4 {
+            font-size: 16px;
+        }
+    }
+    .belch-page-wrapper section h5 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 20px;
+        line-height: 1.2em;
+        font-weight: 700;
+        letter-spacing: 0px;
+        color: #333333;
+    }
+    @media screen and (max-width:992px) {
+        .belch-page-wrapper section h5 {
+            font-size: 20px;
+        }
+    }
+    @media screen and (max-width:768px) {
+        .belch-page-wrapper section h5 {
+            font-size: 20px;
+        }
+    }
+    .belch-page-wrapper section h6 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 20px;
+        line-height: 1.2em;
+        font-weight: 300;
+        letter-spacing: 0px;
+        color: #333333;
+    }
+    @media screen and (max-width:992px) {
+        .belch-page-wrapper section h6 {
+            font-size: 14px;
+        }
+    }
+    @media screen and (max-width:768px) {
+        .belch-page-wrapper section h6 {
+            font-size: 14px;
+        }
+    }
+
+
+
+
+    .belch-page-wrapper a {
+        color: ;
+    }
+    .belch-page-wrapper a:hover {
+        color: ;
+    }
+
+    nav.navbar .hs-menu-wrapper ul li a {
+        color: #fff !important;
+        font-size: 14px !important;
+        font-weight: 300 !important;
+    }
+    nav.navbar .hs-menu-wrapper ul li:hover>a {
+        color: #c3c3c3 !important;
+    }
+    nav.navbar .hs-menu-wrapper ul ul {
+        background: #333333 !important;
+    }
+    nav.navbar .hs-menu-wrapper ul ul {
+        background: #333333 !important;
+    }
+    nav.navbar .hs-menu-wrapper ul ul a {
+        color: #ffffff !important;
+    }
+    nav.navbar .hs-menu-wrapper ul ul a:hover {
+        color: #f3f3f3 !important;
+    }
+    @media screen and (max-width:840px) {
+        h1 {
+            font-size: 42px;
+        }
+        h2 {
+            font-size: 32px;
+        }
+        h3 {
+            font-size: 26px;
+        }
+        h4 {
+            font-size: 21px;
+        }
+        h5 {
+            font-size: 26px;
+        }
+    }
+    @media screen and (max-width: 767px) {
+        .navbar-default .navbar-collapse {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            background: white;
+        }
+        nav.navbar .hs-menu-wrapper ul ul {
+            background: #f9f9f9 !important;
+        }
+        nav.navbar .hs-menu-wrapper ul ul a, nav.navbar .hs-menu-wrapper ul li a, nav.navbar .hs-menu-wrapper ul li a {
+            color: #333 !important;
+        }
+        .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+            background-color: transparent;
+        }
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+        }
+        .navbar-default .navbar-toggle .icon-bar {
+            background-color: #333 !important;
+        }
+    }
+    .navbar #myNavbar {
+        margin-top: 0px;
+    }
+
+
+    .button-1 {
+        color: #fff !important;
+        border-color: #fff !important;
+        background: rgba(255,255,255,0) !important;
+        padding-left: 75px !important;
+        padding-right: 75px !important;
+        padding-top: 15px !important;
+        padding-bottom: 15px !important;
+        border-radius: 0px !important;
+        -moz-border-radius: 0px !important;
+        -webkit-border-radius: 0px !important;
+    }
+    .button-1:hover {
+        background: #fff !important;
+        border-color: #333333 !important;
+        color: #333 !important;\
+    }
+    @media (min-width:1025px) {
+      .banner-section-1 .horizontal-padding {
+        box-sizing: border-box;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+      }
+    }
+
+
+	    @media (min-width:1025px) {
+	      .utility-section-2 .horizontal-padding {
+	        box-sizing: border-box;
+	        padding-left: 0px !important;
+	        padding-right: 0px !important;
+	      }
+	    }
+	
+
+	    @media (min-width:1025px) {
+	      .gallery-section-3 {
+	        box-sizing: border-box;
+	        padding-left: 0px !important;
+	        padding-right: 0px !important;
+	      }
+				.gallery-section-3 .gal-content-inner-wrapper.one {
+	        box-sizing: border-box;
+	        padding-left: 0px !important;
+	        padding-right: 0px !important;
+	      }
+				.gallery-section-3 .gal-content-inner-wrapper.two {
+	        box-sizing: border-box;
+	        padding-left: 0px !important;
+	        padding-right: 0px !important;
+	      }
+				.gallery-section-3 .gal-content-inner-wrapper.three {
+	        box-sizing: border-box;
+	        padding-left: 0px !important;
+	        padding-right: 0px !important;
+	      }
+				.gallery-section-3 .gal-content-inner-wrapper.four {
+	        box-sizing: border-box;
+	        padding-left: 0px !important;
+	        padding-right: 0px !important;
+	      }
+	    }
+	
+
+    .hs-form label {
+        color: #fff !important;
+        font-size: 13px !important;
+        font-weight: 500 !important;
+        margin-bottom: 6px;
+    }
+    .hs-form input[type=date], .hs-form input[type=datetime], .hs-form input[type=datetime-local], .hs-form input[type=email], .hs-form input[type=month], input[type=number], .hs-form input[type=password], .hs-form input[type=range], .hs-form input[type=search], .hs-form input[type=tel], .hs-form input[type=text], .hs-form input[type=time], .hs-form input[type=url], .hs-form input[type=week], .hs-form .input textarea,.hs-form .hs-input textarea,.hs-form textarea, .hs-form .input select, .hs-form .hs-input select, .hs-form select {
+        border-color: #CACACA !important;
+        color: #666666 !important;
+        background-color: rgba(255,255,255,0) !important;
+        padding: 13px;
+        border-radius: 0px !important;
+        -moz-border-radius: 0px !important;
+        -webkit-border-radius: 0px !important;
+        box-sizing:border-box;
+        border-top:0px solid #CACACA !important;
+        border-right:0px solid #CACACA !important;
+        border-bottom:1px solid #CACACA !important;
+        border-left:0px solid #CACACA !important;
+    }
+    .hs-form button, .hs-form input[type=button], .hs-form input[type=reset], .hs-form input[type=submit] {
+        background: rgba(255,255,255,0) !important;
+        color: #fff !important;
+        font-size: 16px !important;
+        font-weight: 300 !important;
+        margin-left: 10px;
+        border-radius: 0px !important;
+        -moz-border-radius: 0px !important;
+        -webkit-border-radius: 0px !important;
+        padding-left: 60px !important;
+        padding-right: 60px !important;
+        padding-top: 15px !important;
+        padding-bottom: 15px !important;
+        border-top: 1px solid rgba(255,255,255,1) !important;
+        border-right: 1px solid rgba(255,255,255,1) !important;
+        border-bottom: 1px solid rgba(255,255,255,1) !important;
+        border-left: 1px solid rgba(255,255,255,1) !important;
+    }
+    .hs-form button:hover, .hs-form input[type=button]:hover, .hs-form input[type=reset]:hover, .hs-form input[type=submit]:hover {
+        background: #fff !important;
+        color: #333 !important;
+        border-color: rgba(255,255,255,1) !important;
+    }
+    .hs-form {
+        max-width: 650px;
+        margin: auto;
+    }
+    @media (min-width:1025px) {
+      .form-section-4 .horizontal-padding {
+        box-sizing: border-box;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+      }
+    }
+
+
+    @media (min-width:1025px) {
+      .social-section-5 .horizontal-padding {
+        box-sizing: border-box;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+      }
+    }
+
+
+	    @media (min-width:1025px) {
+	      .utility-section-6 .horizontal-padding {
+	        box-sizing: border-box;
+	        padding-left: 0px !important;
+	        padding-right: 0px !important;
+	      }
+	    }
+  </style>
+
+  <!-- THEME HTML CODE -->
+  <div class="belch-page-wrapper">
+    <section class="main-navigation navbar-top settings-module">
+		<nav class="navbar navbar-default" style="border-top:0px solid rgba(255,255,255,1) !important;
+            border-right:0px solid rgba(255,255,255,1) !important;
+            border-bottom:0px solid rgba(255,255,255,1) !important;
+            border-left:0px solid rgba(255,255,255,1) !important;">
+            <div class="overlay-wrapper">
+                <div class="overlay settings-module" style="background-color: rgba(255, 255, 255, 0);"></div>
+            </div>
+			<div class="container" style="position:relative;z-index:2;">
+    			<div class="navbar-header">
+    			  <button type="button" class="navbar-toggle settings-module" data-toggle="collapse" data-target="#myNavbar">
+    			    <span class="icon-bar"></span>
+    			    <span class="icon-bar"></span>
+    			    <span class="icon-bar"></span>
+    			  </button>
+                {% logo "belch_id_796035510_1"  style='width:auto;max-height:40px;'  src='https://cdn2.hubspot.net/hubfs/2660705/belch.io/template-assets/logowhitepng-5.png'  %}
+			</div>
+			<div class="collapse navbar-collapse settings-module" id="myNavbar">
+			    {% menu "belch_id_731785657_1" site_map_name='natasha shop', overrideable=True, root_type='site_root', flyouts='true', max_levels='2', flow='horizontal', label='Navigation Menu 1' no_wrapper=True %}
+			</div>
+		  </div>
+		</nav>
+	</section>
+	
+
+	
+  <div style="box-sizing:border-box;
+    border-top:0px solid rgba(255,255,255,1) !important;
+    border-right:0px solid rgba(255,255,255,1) !important;
+    border-bottom:0px solid rgba(255,255,255,1) !important;
+    border-left:0px solid rgba(255,255,255,1) !important;" class="">
+  	<section class="banner-super-wrapper banner-section-1" style="background-image:url(' {% image_src "belch_id_585085446_2" label='Banner Background Image 2', src='https://cdn2.hubspot.net/hubfs/2660705/belch.io/template-assets/fashion2jpeg-4.jpeg', no_wrapper=True %} ');">
+          <div class="overlay-wrapper">
+              <div class="overlay settings-module" style="background: rgba(0, 0, 0, 0.729412);"></div>
+          </div>
+          <div class="container">
+              <div class="clearfix" style="margin-top:290px"></div>
+  			<div class="row">
+  				<div class="jumbotron-off">
+      			    <div class="col-md-12 horizontal-padding">
+      					{% widget_block rich_text "belch_id_946518115_2" overrideable=True, label='Banner Text Block 2', no_wrapper=False %}{% widget_attribute "html" %}<div style="margin-top: 60px; margin-bottom: 30px; position: relative;" class=""><h1 style="text-align: center;" data-mce-style="text-align: center;">Handcrafted in<br>Boston</h1><p>&nbsp;<br></p></div>{% end_widget_attribute %}{% end_widget_block %}
+      			    </div>
+      			    <div class="col-md-12 horizontal-padding">
+                        <div class="text-center">
+          				  <a text="button_label" href="{% text "belch_id_554292009_2_url" label="Banner CTA Link Url 2" value="#" no_wrapper=True %}" class="btn btn-banner button-1 settings-module color-picker-input-spinner">{% text "belch_id_554292009_2_text" label="Banner CTA Link Text 2" value="ALL COLLECTIONS" no_wrapper=True %}</a>
+                        </div>
+      				</div>
+  				</div>
+  			</div>
+              <div class="clearfix" style="margin-top:290px"></div>
+  		</div>
+  	</section>
+  </div>
+	
+	
+
+	
+	<div style="box-sizing:border-box;
+	  border-top:0px solid rgba(255,255,255,1) !important;
+	  border-right:0px solid rgba(255,255,255,1) !important;
+	  border-bottom:0px solid rgba(255,255,255,1) !important;
+	  border-left:0px solid rgba(255,255,255,1) !important;" class="">
+	<section class="utility-super-wrapper utility-section-2" style="background-image:url(' {% image_src "belch_id_592506295_3" label='Utility Row Background Image 3', src='https://s3.amazonaws.com/belch.io/themes/minimalist/img/minimalist-stock2.jpg', no_wrapper=True %} ');">
+        <div class="overlay-wrapper">
+            <div class="overlay settings-module" style="background: rgb(249, 249, 249);"></div>
+        </div>
+        <div class="container horizontal-padding">
+            <div class="clearfix" style="margin-top:0px"></div>
+			
+			
+			
+			
+			<div class="row settings-module">
+			    <div class="col-md-12">
+					{% widget_block rich_text "belch_id_465950096_3" overrideable=True, label='Utility Text Block 3', no_wrapper=False %}{% widget_attribute "html" %}<div class="" style="position: relative;"><h2 style="text-align: center;" data-mce-style="text-align: center;">Natasha\'s Top Collections</h2></div>{% end_widget_attribute %}{% end_widget_block %}
+			    </div>
+			</div>
+            <div class="clearfix" style="margin-top:10px"></div>
+		</div>
+	</section>
+	</div>
+	
+	
+
+	
+	<div style="box-sizing:border-box;
+			border-top:0px solid rgba(255,255,255,1) !important;
+			border-right:0px solid rgba(255,255,255,1) !important;
+			border-bottom:0px solid rgba(255,255,255,1) !important;
+			border-left:0px solid rgba(255,255,255,1) !important;" class="">
+	<section class="gallery-super-wrapper" style="background-image:url(' {% image_src "belch_id_269281399_4" label='Gallery Background Image 4', src='https://s3.amazonaws.com/belch.io/themes/minimalist/img/minimalist-stock2.jpg', no_wrapper=True %} ');">
+        <div class="overlay-wrapper">
+            <div class="overlay settings-module" style="background: rgb(249, 249, 249);"></div>
+        </div>
+		<div class="container-fluid tight-gallery-container gallery-section-3" style="min-height:420px; padding-top:0px;padding-bottom:0px;">
+
+			
+			<div class="row gallery-row settings-module">
+			   <div class="col-md-4 gallery-item" style="height:420px;position:relative;">
+                    <div class="overlay-wrapper">
+                        <div class="gallery-img" style="background-image:url(' {% image_src "belch_id_100096420_4" label='Gallery Background Image 4', src='https://cdn2.hubspot.net/hubfs/2660705/belch.io/template-assets/accessoriesstackedjpeg-4.jpeg', no_wrapper=True %} ');"></div>
+                        <div class="overlay settings-module" style="background: rgba(255, 255, 255, 0.85098);"></div>
+                    </div>
+                    <div class="gal-content flex-box">
+											<div class="gal-content-inner-wrapper one flex-box" style="padding-top:0px;padding-bottom:0px;">
+													<div class="content-padding text-left">
+                                {% widget_block rich_text "belch_id_737569857_4" overrideable=True, label='First Gallery Item Text Block 4', no_wrapper=False %}{% widget_attribute "html" %}<div class="" style="position: relative;"><h3 data-mce-style="text-align: center;" style="text-align: center;">Business<br>Accessories</h3><p>&nbsp;<br></p><p style="text-align: center;" data-mce-style="text-align: center;">SHOP NOW</p></div>{% end_widget_attribute %}{% end_widget_block %}
+                            </div>
+                        </div>
+                    </div>
+			   </div>
+			   <div class="col-md-4 gallery-item" style="height:420px;position:relative;">
+                    <div class="overlay-wrapper">
+                        <div class="gallery-img" style="background-image:url(' {% image_src "belch_id_433168655_4" label='Gallery Background Image 4', src='https://cdn2.hubspot.net/hubfs/2660705/belch.io/template-assets/fashion1jpg-4.jpeg', no_wrapper=True %} ');"></div>
+                        <div class="overlay settings-module" style="background: rgba(255, 255, 255, 0.85098);"></div>
+                    </div>
+                    <div class="gal-content flex-box">
+											<div class="gal-content-inner-wrapper two flex-box" style="padding-top:0px;padding-bottom:0px;">
+													<div class="content-padding text-left">
+                                {% widget_block rich_text "belch_id_934953367_4" overrideable=True, label='Second Gallery Item Text Block 4', no_wrapper=False %}{% widget_attribute "html" %}<div class="" style="position: relative;"><h3 style="text-align: center;" data-mce-style="text-align: center;">Women\'s<br>Accessories</h3><p>&nbsp;</p><p style="text-align: center;" data-mce-style="text-align: center;">SHOP NOW</p></div>{% end_widget_attribute %}{% end_widget_block %}
+                            </div>
+                        </div>
+                    </div>
+			   </div>
+			   <div class="col-md-4 gallery-item" style="height:420px;position:relative;">
+                    <div class="overlay-wrapper">
+                        <div class="gallery-img" style="background-image:url(' {% image_src "belch_id_32422385_4" label='Gallery Background Image 4', src='https://cdn2.hubspot.net/hubfs/2660705/belch.io/template-assets/thegoodbookjpeg-5.jpeg', no_wrapper=True %} ');"></div>
+                        <div class="overlay settings-module" style="background: rgba(255, 255, 255, 0.85098);"></div>
+                    </div>
+                    <div class="gal-content flex-box">
+											<div class="gal-content-inner-wrapper three flex-box" style="padding-top:0px;padding-bottom:0px;">
+													<div class="content-padding text-left">
+                                {% widget_block rich_text "belch_id_863695488_4" overrideable=True, label='Third Gallery Item Text Block 4', no_wrapper=False %}{% widget_attribute "html" %}<div class="" style="position: relative;"><h3 style="text-align: center;" data-mce-style="text-align: center;">Men\'s<br>Accessories</h3><p>&nbsp;</p><p style="text-align: center;" data-mce-style="text-align: center;">SHOP NOW</p></div>{% end_widget_attribute %}{% end_widget_block %}
+                            </div>
+                        </div>
+                    </div>
+			   </div>
+
+			</div>
+			
+
+		</div>
+	</section>
+	</div>
+	
+
+	
+  <div style="box-sizing:border-box;
+    border-top:0px solid rgba(255,255,255,1) !important;
+    border-right:0px solid rgba(255,255,255,1) !important;
+    border-bottom:0px solid rgba(255,255,255,1) !important;
+    border-left:0px solid rgba(255,255,255,1) !important;" class="">
+	<section class="form-super-wrapper form-section-4" style="background-image:url(' {% image_src "belch_id_77007734_5" label='Contact Background Image 5', src='https://s3.amazonaws.com/belch.io/themes/minimalist/img/minimalist-stock2.jpg', no_wrapper=True %} ');">
+        <div class="overlay-wrapper">
+            <div class="overlay settings-module" style="background: rgb(0, 0, 0);"></div>
+        </div>
+		<div class="container horizontal-padding">
+            <div class="clearfix" style="margin-top:70px"></div>
+			<div class="row">
+
+    			    <div class="col-md-6 settings-module">
+        				{% widget_block rich_text "belch_id_291209294_5" overrideable=True, label='Contact Text Block 5', no_wrapper=False %}{% widget_attribute "html" %}<div class="page-title text-left" style="position: relative;"><h6 style="text-align: right;" data-mce-style="text-align: right;"><span style="color: rgb(255, 255, 255);" data-mce-style="color: #ffffff;">STAY UP-TO-DATE</span></h6><p style="text-align: right;" data-mce-style="text-align: right;"><span style="color: rgb(255, 255, 255);" data-mce-style="color: #ffffff;">Farm-to-table cloud bread<br>flannel whatever tofu pour-over.&nbsp;<br>Banh mi la croix pabst four loko <br>tumblr, banjo</span></p></div>{% end_widget_attribute %}{% end_widget_block %}
+    				</div>
+
+
+
+    				<div class="col-md-6 form-sec">
+
+    				    {% form "belch_id_339670515_5" form_to_use='8517c372-3cff-4bc0-801b-3f92929abf38', title='Form 5' label="Form 5" no_wrapper=True %}
+                    </div>
+
+    			    
+
+
+
+
+
+
+
+
+
+			</div>
+            <div class="clearfix" style="margin-top:70px"></div>
+		</div>
+	</section>
+  </div>
+	
+
+
+	
+  <div style="box-sizing:border-box;
+    border-top:0px solid rgba(255,255,255,1) !important;
+    border-right:0px solid rgba(255,255,255,1) !important;
+    border-bottom:0px solid rgba(255,255,255,1) !important;
+    border-left:0px solid rgba(255,255,255,1) !important;" class="">
+	<section class="onecol-super-wrapper social-section-5" style="background-image:url(' {% image_src "belch_id_861995584_6" label='Social Background Image 6', src='https://s3.amazonaws.com/belch.io/themes/minimalist/img/minimalist-stock2.jpg', no_wrapper=True %} ');">
+        <div class="overlay-wrapper">
+            <div class="overlay settings-module" style="background: rgb(0, 0, 0);"></div>
+        </div>
+        <div class="container horizontal-padding">
+            <div class="clearfix" style="margin-top:0px"></div>
+			<div class="row">
+			    <div class="col-md-12">
+			        <div class="social-menu-container">
+			            <ul>
+			               <li class="settings-module">
+			                 <a class="service-icon settings-module">
+    						      <i style="color:#b7b7b7;font-size:25px" class="fa settings-module fa-facebook"></i>
+			                 </a>
+			               </li>
+			               <li class="settings-module">
+			                 <a class="service-icon settings-module">
+    						      <i style="color:#b7b7b7;font-size:25px" class="fa settings-module fa-twitter"></i>
+			                 </a>
+			               </li>
+			               
+			               <li class="settings-module">
+			                 <a class="service-icon settings-module">
+    						      <i style="color:#b7b7b7;font-size:25px" class="fa settings-module fa-youtube"></i>
+			                 </a>
+			               </li>
+			               <li class="settings-module">
+			                 <a class="service-icon settings-module">
+    						      <i style="color:#b7b7b7;font-size:25px" class="fa settings-module fa-instagram"></i>
+			                 </a>
+			               </li>
+			               <li class="settings-module">
+			                 <a class="service-icon settings-module">
+    						      <i style="color:#b7b7b7;font-size:25px" class="fa settings-module fa-amazon"></i>
+			                 </a>
+			               </li>
+			            </ul>
+			        </div>
+			    </div>
+			</div>
+            <div class="clearfix" style="margin-top:0px"></div>
+		</div>
+	</section>
+  </div>
+	
+	
+
+	
+	<div style="box-sizing:border-box;
+	  border-top:0px solid rgba(255,255,255,1) !important;
+	  border-right:0px solid rgba(255,255,255,1) !important;
+	  border-bottom:0px solid rgba(255,255,255,1) !important;
+	  border-left:0px solid rgba(255,255,255,1) !important;" class="">
+	<section class="utility-super-wrapper utility-section-6" style="background-image:url(' {% image_src "belch_id_386080760_7" label='Utility Row Background Image 7', src='https://s3.amazonaws.com/belch.io/themes/minimalist/img/minimalist-stock2.jpg', no_wrapper=True %} ');">
+        <div class="overlay-wrapper">
+            <div class="overlay settings-module" style="background: rgb(0, 0, 0);"></div>
+        </div>
+        <div class="container horizontal-padding">
+            <div class="clearfix" style="margin-top:0px"></div>
+			
+			
+			
+			
+			<div class="row settings-module">
+			    <div class="col-md-12">
+					{% widget_block rich_text "belch_id_879232600_7" overrideable=True, label='Utility Text Block 7', no_wrapper=False %}{% widget_attribute "html" %}<div class="" style="position: relative;"><p style="text-align: center;" data-mce-style="text-align: center;"><span style="font-size: 10px; color: rgb(255, 255, 255);" data-mce-style="font-size: 10px; color: #ffffff;">MADE WITH</span> <span style="color: rgb(255, 102, 0); font-size: 14px;" data-mce-style="color: #ff6600; font-size: 14px;">BELCH.IO</span></p></div>{% end_widget_attribute %}{% end_widget_block %}
+			    </div>
+			</div>
+            <div class="clearfix" style="margin-top:30px"></div>
+		</div>
+	</section>
+	</div>
+  </div>
+
+  <!-- THEME JAVASCRIPT -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  {{ widget_data.custom_js_code.value }}
+  {{ standard_footer_includes }}
+</body>
+</html>
